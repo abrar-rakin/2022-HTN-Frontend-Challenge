@@ -1,4 +1,6 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import {motion} from 'framer-motion/dist/es/index'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -6,8 +8,10 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ChakraProvider>
     <App />
-  </React.StrictMode>,
+    </ChakraProvider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
