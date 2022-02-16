@@ -1,16 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import {
-  HStack,
   Box,
-  Button,
   Text,
   Badge,
-  Input,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
 } from "@chakra-ui/react";
 import { getEventType } from "../../util";
 import styles from "./index.module.css";
