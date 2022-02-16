@@ -2,14 +2,14 @@
 Live link: [https://abrar-rakin-htn-2022.netlify.app/](https://abrar-rakin-htn-2022.netlify.app/) 
 
 ## Installation
-To get running with the repository, run
+Run
 ```bash
 npm install
 ```
 ```bash    
 npm start
 ```
-Open [http://localhost:3000](http://localhost:3000) on your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) on your browser to see the project.
 
 ## Features
 
