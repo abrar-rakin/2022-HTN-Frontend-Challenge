@@ -174,7 +174,10 @@ const Home = () => {
       {isInitialLoading ? (
         <EventList desiredEventList={allSortedEvents} loggedIn={loggedIn} />
       ) : (
-        <EventList desiredEventList={filteredEventsByCategory} loggedIn={loggedIn} />
+        <EventList
+          desiredEventList={filteredEventsByCategory}
+          loggedIn={loggedIn}
+        />
       )}
     </>
   );
