@@ -10,7 +10,7 @@ const EventList = ({ desiredEventList, loggedIn }) => {
       {desiredEventList?.map((event) => (
         <Link
           key={event?.id}
-          to={`/events/${event?.id}`}
+          to={`/events/${event?.id}`} // https://ui.dev/react-router-pass-props-to-link
           state={{
             desiredEventList,
             loggedIn,

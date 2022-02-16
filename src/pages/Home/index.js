@@ -12,15 +12,17 @@ import {
 } from "@chakra-ui/react";
 
 const Home = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [allEvents, setAllEvents] = useState([]);
-  const [isErrorState, setIsErrorState] = useState(false);
+  const [allEvents, setAllEvents] = useState([]); // list of all events - both public and private
+  const [isErrorState, setIsErrorState] = useState(false); // determines when to show Alert for wrong email/password
   const [isInitialLoading, setIsInitialLoading] = useState(true); // ensures only public events are shown when not logged in
   const [filteredEvents, setFilteredEvents] = useState([]); // filtered events by permission
   const [allSortedEvents, setAllSortedEvents] = useState([]); // sorted event list (after filtering)
-  const [filteredEventsByCategory, setFilteredEventsByCategory] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [filteredEventsByCategory, setFilteredEventsByCategory] = useState([]); // filtered events by category
+  const [loggedIn, setLoggedIn] = useState(false); // determines if user logged in or not
+
   const handleLogIn = () => {
     setIsInitialLoading(true);
     if (email == "abrar@gmail.com" && password == "abrar1234") {
@@ -31,6 +33,7 @@ const Home = () => {
       setLoggedIn(false);
     }
   };
+
   useEffect(() => {
     const url = "https://api.hackthenorth.com/v3/events";
     const fetchData = async () => {
@@ -47,7 +50,7 @@ const Home = () => {
           setFilteredEvents(onlyPublicEvents);
         }
         const sortedFilteredEvents = filteredEvents.sort(function (x, y) {
-          return x.start_time - y.start_time;
+          return x.start_time - y.start_time; // sorting by start time
         });
         setAllSortedEvents(sortedFilteredEvents);
         // const rtimes = sortedAllEvents.map(function(x) {
@@ -60,6 +63,7 @@ const Home = () => {
     };
     fetchData();
   }, [filteredEvents, loggedIn]);
+
   const handleFiltering = (eventType) => {
     setIsInitialLoading(false);
     if (eventType === "all") {
@@ -71,6 +75,7 @@ const Home = () => {
       setFilteredEventsByCategory(filtered);
     }
   };
+
   return (
     <>
       <div>
@@ -171,7 +176,7 @@ const Home = () => {
           </Button>
         </HStack>
       </div>
-      {isInitialLoading ? (
+      {isInitialLoading ? ( 
         <EventList desiredEventList={allSortedEvents} loggedIn={loggedIn} />
       ) : (
         <EventList

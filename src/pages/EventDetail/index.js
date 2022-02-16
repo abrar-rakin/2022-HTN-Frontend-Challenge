@@ -71,7 +71,7 @@ const EventDetail = () => {
                 style={{ color: "teal" }}
                 key={id}
                 to={`/events/${id}`}
-                state={{ desiredEventList, loggedIn }}
+                state={{ desiredEventList, loggedIn }} // https://ui.dev/react-router-pass-props-to-link
               >
                 {relatedEvent?.permission === "private" ? (
                   loggedIn && <Text>{relatedEvent?.name}</Text>
