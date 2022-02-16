@@ -1,5 +1,5 @@
 # Hack the North Front End Challenge
-Live link: # 
+Live link: [https://abrar-rakin-htn-2022.netlify.app/](https://abrar-rakin-htn-2022.netlify.app/) 
 
 ## Installation
 To get running with the repository, run
@@ -49,4 +49,5 @@ The project has the following folder structure:
 - Turn the application into a PWA
 - Have a different page for login
 - Write custom CSS instead of using Chakra UI to give the site a more unique look
+- Move all inline CSS styles to index.module.css file
 - Make better design. I did not spend a lot of time on designing the app due to time limitations, but I hope what I did does not look too bad :)
