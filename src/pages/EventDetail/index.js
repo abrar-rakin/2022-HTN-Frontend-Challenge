@@ -2,8 +2,8 @@ import React from "react";
 import { useLocation, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { getEventType } from "../../util";
-import { Box, Text, Link as ChakraLink } from "@chakra-ui/react";
 import styles from "./index.module.css";
+import { Box, Text, Link as ChakraLink } from "@chakra-ui/react";
 
 const EventDetail = () => {
   const location = useLocation();
@@ -11,8 +11,7 @@ const EventDetail = () => {
   console.log(location.state);
   //   console.log(location.state)
 
-  const allSortedEvents =
-    location.state.allSortedEvents || location.state.filteredEventsByCategory;
+  const desiredEventList = location.state.desiredEventList;
   const loggedIn = location.state.loggedIn;
 
   const getEventDetailsByID = (id, events) => {
@@ -20,7 +19,7 @@ const EventDetail = () => {
     return currEvent[0];
   };
 
-  const currentEvent = getEventDetailsByID(id, allSortedEvents);
+  const currentEvent = getEventDetailsByID(id, desiredEventList);
   return (
     <>
       <Text m={5}>
@@ -65,14 +64,14 @@ const EventDetail = () => {
           <strong>Related events:</strong>
         </Text>
         {currentEvent?.related_events.map((id) => {
-          const relatedEvent = getEventDetailsByID(id, allSortedEvents);
+          const relatedEvent = getEventDetailsByID(id, desiredEventList);
           return (
             <Text m={5}>
               <Link
                 style={{ color: "teal" }}
                 key={id}
                 to={`/events/${id}`}
-                state={{ allSortedEvents, loggedIn }}
+                state={{ desiredEventList, loggedIn }}
               >
                 {relatedEvent?.permission === "private" ? (
                   loggedIn && <Text>{relatedEvent?.name}</Text>
