@@ -51,12 +51,12 @@ const EventDetail = () => {
           <strong>Links:</strong>
         </Text>
         {currentEvent?.public_url !== "" && (
-          <ChakraLink mr={2} color="teal.500" href={currentEvent?.public_url}>
+          <ChakraLink mr={2} color="teal.500" href={currentEvent?.public_url} target="_blank">
             YouTube
           </ChakraLink>
         )}
         {loggedIn && currentEvent.private_url !== "" && (
-          <ChakraLink color="teal.500" href={currentEvent?.private_url}>
+          <ChakraLink color="teal.500" href={currentEvent?.private_url} target="_blank">
             Hopin
           </ChakraLink>
         )}
