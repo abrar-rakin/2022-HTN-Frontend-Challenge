@@ -1,74 +1,89 @@
 import React from "react";
 import { useLocation, useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { getEventType } from "../../util";
+import { Box, Text, Link as ChakraLink } from "@chakra-ui/react";
+import styles from "./index.module.css";
 
 const EventDetail = () => {
   const location = useLocation();
   const { id } = useParams();
-  // console.log(location.state)
+  console.log(location.state);
   //   console.log(location.state)
-  //   const {
-  //     id,
-  //     name,
-  //     permission,
-  //     public_url,
-  //     private_url,
-  //     description,
-  //     event_type,
-  //     end_time,
-  //     start_time,
-  //     related_events,
-  //     speakers,
-  //   } = location.state.event;
 
-  const allSortedEvents = location.state.allSortedEvents;
+  const allSortedEvents =
+    location.state.allSortedEvents || location.state.filteredEventsByCategory;
   const loggedIn = location.state.loggedIn;
-  // console.log(loggedIn)
 
-  const getEventType = (eventType) => {
-    if (eventType === "tech_talk") {
-      return "Tech Talk"
-    } else if (eventType === "activity") {
-      return "Activity"
-    } else if (eventType === "workshop") {
-      return "Workshop"
-    }
-  }
-// console.log(location.state.allSortedEvents)
   const getEventDetailsByID = (id, events) => {
     const currEvent = events?.filter((event) => event.id == id);
-    // console.log(currEvent)
     return currEvent[0];
   };
 
   const currentEvent = getEventDetailsByID(id, allSortedEvents);
   return (
     <>
-    <Link to="/">Back to events list page</Link>
-    <div>
-      <p>Event name: {currentEvent?.name}</p>
-      <p>Event type: {getEventType(currentEvent?.event_type)}</p>
-      <p>Description: {currentEvent?.description}</p>
-      {currentEvent?.public_url !== "" && <a href={currentEvent?.public_url}>YouTube </a>}
-      {loggedIn && currentEvent.private_url !== "" && <a href={currentEvent?.private_url}>Hopin</a>}
-      </div>
-      <div>
-        <div>
-          <h3>Related events:</h3>
-          {currentEvent?.related_events.map((id) => {
-            const relatedEvent = getEventDetailsByID(id, allSortedEvents);
-            return (
-              <Link key={id} to={`/events/${id}`} state={{allSortedEvents, loggedIn}}>
-                <p>
-                  {relatedEvent?.permission === "private" ? 
-                  loggedIn && <strong>{relatedEvent?.name}</strong> : 
-                  <strong>{relatedEvent?.name}</strong>}
-                </p>
+      <Text m={5}>
+        <Link style={{ color: "teal" }} to="/">
+          {" "}
+          Back to events list page
+        </Link>
+      </Text>
+      <Box
+        m={"auto"}
+        mt={"5%"}
+        className={styles.detailStyle}
+        maxW="2xl"
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        bg="#E7F6FC"
+      >
+        <Text m={6}>
+          <strong>Event name:</strong> {currentEvent?.name}
+        </Text>
+        <Text m={6}>
+          <strong>Event type:</strong> {getEventType(currentEvent?.event_type)}
+        </Text>
+        <Text m={6}>
+          <strong>Description:</strong> {currentEvent?.description}
+        </Text>
+        <Text ml={6} mr={3} style={{ display: "inline-block" }}>
+          <strong>Links:</strong>
+        </Text>
+        {currentEvent?.public_url !== "" && (
+          <ChakraLink mr={2} color="teal.500" href={currentEvent?.public_url}>
+            YouTube
+          </ChakraLink>
+        )}
+        {loggedIn && currentEvent.private_url !== "" && (
+          <ChakraLink color="teal.500" href={currentEvent?.private_url}>
+            Hopin
+          </ChakraLink>
+        )}
+        <Text m={6}>
+          <strong>Related events:</strong>
+        </Text>
+        {currentEvent?.related_events.map((id) => {
+          const relatedEvent = getEventDetailsByID(id, allSortedEvents);
+          return (
+            <Text m={5}>
+              <Link
+                style={{ color: "teal" }}
+                key={id}
+                to={`/events/${id}`}
+                state={{ allSortedEvents, loggedIn }}
+              >
+                {relatedEvent?.permission === "private" ? (
+                  loggedIn && <Text>{relatedEvent?.name}</Text>
+                ) : (
+                  <Text>{relatedEvent?.name}</Text>
+                )}
               </Link>
-            );
-          })}
-        </div>
-      </div>
+            </Text>
+          );
+        })}
+      </Box>
     </>
   );
 };
