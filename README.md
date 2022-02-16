@@ -17,6 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) on your browser to see the p
 - Events sorted by start_time
 - A way to link to and view each related event
 - Can filter events by type
+- Code documentation where needed
 
 ## Writeup
 ### Folder Structure
