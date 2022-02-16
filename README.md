@@ -1,4 +1,4 @@
-# Hack the North Front End Challenge
+# Hack the North Frontend Challenge (2022)
 Live link: [https://abrar-rakin-htn-2022.netlify.app/](https://abrar-rakin-htn-2022.netlify.app/) 
 
 ## Installation
