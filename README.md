@@ -3,8 +3,12 @@ Live link: #
 
 ## Installation
 To get running with the repository, run
+```bash
 npm install
+```
+```bash    
 npm start
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Features
@@ -17,12 +21,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Writeup
 ### Folder Structure
 The project has the following folder structure:
+```
 └───components
     └───EventList
 └───pages
     └───EventDetail
     └───Home
 └───util
+```
 
 ### Tools Used
 - ChakraUI
