@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Hack the North Front End Challenge
+Live link: # 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
+To get running with the repository, run
+```bash
+npm install
+```
+```bash    
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) on your browser to see the result.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Display all or some events depending on whether user is logged in or not logged in
+- Events sorted by start_time
+- A way to link to and view each related event
+- Can filter events by type
 
-### `npm start`
+## Writeup
+### Folder Structure
+The project has the following folder structure:
+```
+└───components
+    └───EventList
+└───pages
+    └───EventDetail
+    └───Home
+└───util
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tools Used
+- ChakraUI
+  - Easy-to-understand documentation; nice aesthetics
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Design Decisions
+- Generally in my other projects I use a combination of useState, prop drilling and context for state management. In this project, I wanted to try out a different way of passing props between pages that I recently discovered (basically done by including a state prop in the React Router's Link component, more about it here - [ui.dev](https://ui.dev/react-router-pass-props-to-link)). Using this method made my code concise, and it is very easy to understand too! 
+- Tried to use a similar color combination as [hackthenorth.com](https://hackthenorth.com/). 
+- Did not add the pictures in the EventDetail page in order to maintain consistency, as I saw that some of the events did not have an image.
+- Would have preferred to use Typescript and NextJS if I had more time. Typescript reduces the chances of bugs, so it saves time in the long run. NextJS makes site faster with the help of server-side rendering and also helps with SEO. However, considering I am relatively new to both Typescript and NextJS, and had two mid-terms this week, I decided to go with plain ReactJS and Javascript instead.  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Enhancements/Improvements 
+- Use localStorage to persist login state (and possibly filtered events too) even after a page refresh
+- Add ability for users to bookmark events and retrieve them using a filter
+- Export events to Google calendar
+- Add search bar to search for events
+- Turn the application into a PWA
+- Have a different page for login
+- Write custom CSS instead of using Chakra UI to give the site a more unique look
+- Make better design. I did not spend a lot of time on designing the app due to time limitations, but I hope what I did does not look too bad :)
