@@ -53,9 +53,7 @@ const Home = () => {
         const sortedFilteredEvents = filteredEvents.sort(function (x, y) {
           return x.start_time - y.start_time;
         });
-        // console.log(json);
         setAllSortedEvents(sortedFilteredEvents);
-        // setFilteredEventsByCategory(allSortedEvents);
         // const rtimes = sortedAllEvents.map(function(x) {
         //   return new Date(x.start_time * 1000);
         // });
@@ -118,29 +116,9 @@ const Home = () => {
                 </Button>
               </HStack>
             </div>
-            {/* <h2>Login to view private hacker events</h2> */}
           </>
         ) : (
           <>
-            {/* <h2>Welcome!</h2> */}
-            {/* <Button
-            mt={5}
-              ml={"45%"}
-              color="#F1F1EE"
-              variant="solid"
-              backgroundColor="#279CCD"
-              type="submit"
-              onClick={() => {
-                setLoggedIn(false);
-                setIsInitialLoading(true);
-                // const sortedFilteredEvents = onlyPublicEvents.sort(function (x, y) {
-                //   return x.start_time - y.start_time;
-                // });
-                // setAllSortedEvents(sortedFilteredEvents);
-              }}
-            >
-              Log Out
-            </Button> */}
             <Text ml={"45%"} mt={5} fontSize="2xl">
               WELCOME!
             </Text>
@@ -157,7 +135,6 @@ const Home = () => {
             maxWidth: "80%",
             margin: "5% 10%",
           }}
-          // spacing="20%"
           my="8"
         >
           <Button
@@ -215,10 +192,6 @@ const Home = () => {
                   bg="#E7F6FC"
                   w="80%"
                   p={6}
-                  // borderLeftWidth="2px"
-                  // borderLeft= "solid"
-                  // borderRightWidth="10px"
-                  // borderRight= "solid"
                 >
                   <Text style={{ display: "inline-block" }} fontSize="lg">
                     {(event?.name).toUpperCase()}
