@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Text, Badge } from "@chakra-ui/react";
+import { Box, Text, Badge, HStack } from "@chakra-ui/react";
+import { CalendarIcon } from "@chakra-ui/icons";
 import { getEventType } from "../../util";
 import styles from "./index.module.css";
 
@@ -28,6 +29,10 @@ const EventList = ({ desiredEventList, loggedIn }) => {
             </Text>
             <Badge ml="2" borderRadius="full" px="2" colorScheme="teal">
               {getEventType(event?.event_type)}
+            </Badge>
+            <Badge ml="2" borderRadius="full" px="2" colorScheme="blue">
+            <CalendarIcon />
+               {"  " + new Date(event?.start_time).toUTCString()}
             </Badge>
           </Box>
         </Link>

@@ -18,10 +18,10 @@ const Home = () => {
   const [allEvents, setAllEvents] = useState([]); // list of all events - both public and private
   const [isErrorState, setIsErrorState] = useState(false); // determines when to show Alert for wrong email/password
   const [isInitialLoading, setIsInitialLoading] = useState(true); // ensures only public events are shown when not logged in
-  const [filteredEvents, setFilteredEvents] = useState([]); // filtered events by permission
+  const [filteredEvents, setFilteredEvents] = useState([]); // filtered events by permission (private/public)
   const [allSortedEvents, setAllSortedEvents] = useState([]); // sorted event list (after filtering)
   const [filteredEventsByCategory, setFilteredEventsByCategory] = useState([]); // filtered events by category
-  const [loggedIn, setLoggedIn] = useState(false); // determines if user logged in or not
+  const [loggedIn, setLoggedIn] = useState(false); // determines if user is logged in or not
 
   const handleLogIn = () => {
     setIsInitialLoading(true);
@@ -53,10 +53,6 @@ const Home = () => {
           return x.start_time - y.start_time; // sorting by start time
         });
         setAllSortedEvents(sortedFilteredEvents);
-        // const rtimes = sortedAllEvents.map(function(x) {
-        //   return new Date(x.start_time * 1000);
-        // });
-        // console.log(rtimes)
       } catch (error) {
         console.log("error", error);
       }
@@ -90,7 +86,7 @@ const Home = () => {
                 </AlertDescription>
               </Alert>
             )}
-            <div style={{ marginLeft: "30%" }}>
+            <div style={{ marginLeft: "33%" }}>
               <HStack mt={5} spacing={3}>
                 <Input
                   style={{ width: "20%" }}

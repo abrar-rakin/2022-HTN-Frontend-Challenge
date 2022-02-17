@@ -45,6 +45,12 @@ const EventDetail = () => {
           <strong>Event type:</strong> {getEventType(currentEvent?.event_type)}
         </Text>
         <Text m={6}>
+          <strong>Start time:</strong> {"  " + new Date(currentEvent?.start_time).toUTCString()}
+        </Text>
+        <Text m={6}>
+          <strong>End time:</strong> {"  " + new Date(currentEvent?.end_time).toUTCString()}
+        </Text>
+        <Text m={6}>
           <strong>Description:</strong> {currentEvent?.description}
         </Text>
         <Text ml={6} mr={3} style={{ display: "inline-block" }}>
