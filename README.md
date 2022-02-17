@@ -43,7 +43,8 @@ The project has the following folder structure:
 - Would have preferred to use Typescript and NextJS if I had more time. Typescript reduces the chances of bugs, so it saves time in the long run. NextJS makes site faster with the help of server-side rendering and also helps with SEO. However, considering I am relatively new to both Typescript and NextJS, and had two mid-terms this week, I decided to go with plain ReactJS and Javascript instead.  
 
 
-### Enhancements/Improvements 
+### Enhancements/Improvements
+- Implement code-splitting and utilize CDN to account for high traffic into the website
 - Use localStorage to persist login state (and possibly filtered events too) even after a page refresh
 - Add ability for users to bookmark events and retrieve them using a filter
 - Export events to Google calendar
