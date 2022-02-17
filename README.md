@@ -32,8 +32,10 @@ The project has the following folder structure:
 ```
 
 ### Tools Used
+- React (JavaScript)
 - ChakraUI
   - Easy-to-understand documentation; nice aesthetics
+- ChakraUI Icons
 
 ### Design Decisions
 - Generally in my other projects I use a combination of useState, prop drilling and context for state management. In this project, I wanted to try out a different way of passing props between pages that I recently discovered (basically done by including a state prop in the React Router's Link component, more about it here - [ui.dev](https://ui.dev/react-router-pass-props-to-link)). Using this method made my code concise, and it is very easy to understand too!
