@@ -1,3 +1,4 @@
+// returns event type
 export const getEventType = (eventType) => {
   if (eventType === "tech_talk") {
     return "Tech Talk";

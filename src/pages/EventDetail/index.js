@@ -9,7 +9,6 @@ const EventDetail = () => {
   const location = useLocation();
   const { id } = useParams();
   console.log(location.state);
-  //   console.log(location.state)
 
   const desiredEventList = location.state.desiredEventList;
   const loggedIn = location.state.loggedIn;
@@ -45,10 +44,12 @@ const EventDetail = () => {
           <strong>Event type:</strong> {getEventType(currentEvent?.event_type)}
         </Text>
         <Text m={6}>
-          <strong>Start time:</strong> {"  " + new Date(currentEvent?.start_time).toUTCString()}
+          <strong>Start time:</strong>{" "}
+          {"  " + new Date(currentEvent?.start_time).toUTCString()}
         </Text>
         <Text m={6}>
-          <strong>End time:</strong> {"  " + new Date(currentEvent?.end_time).toUTCString()}
+          <strong>End time:</strong>{" "}
+          {"  " + new Date(currentEvent?.end_time).toUTCString()}
         </Text>
         <Text m={6}>
           <strong>Description:</strong> {currentEvent?.description}
@@ -57,12 +58,21 @@ const EventDetail = () => {
           <strong>Links:</strong>
         </Text>
         {currentEvent?.public_url !== "" && (
-          <ChakraLink mr={2} color="teal.500" href={currentEvent?.public_url} target="_blank">
+          <ChakraLink
+            mr={2}
+            color="teal.500"
+            href={currentEvent?.public_url}
+            target="_blank"
+          >
             YouTube
           </ChakraLink>
         )}
         {loggedIn && currentEvent.private_url !== "" && (
-          <ChakraLink color="teal.500" href={currentEvent?.private_url} target="_blank">
+          <ChakraLink
+            color="teal.500"
+            href={currentEvent?.private_url}
+            target="_blank"
+          >
             Hopin
           </ChakraLink>
         )}

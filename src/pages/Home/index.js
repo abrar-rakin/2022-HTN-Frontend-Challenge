@@ -12,16 +12,22 @@ import {
 } from "@chakra-ui/react";
 
 const Home = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [allEvents, setAllEvents] = useState([]); // list of all events - both public and private
-  const [isErrorState, setIsErrorState] = useState(false); // determines when to show Alert for wrong email/password
-  const [isInitialLoading, setIsInitialLoading] = useState(true); // ensures only public events are shown when not logged in
-  const [filteredEvents, setFilteredEvents] = useState([]); // filtered events by permission (private/public)
-  const [allSortedEvents, setAllSortedEvents] = useState([]); // sorted event list (after filtering)
-  const [filteredEventsByCategory, setFilteredEventsByCategory] = useState([]); // filtered events by category
-  const [loggedIn, setLoggedIn] = useState(false); // determines if user is logged in or not
+  // list of all events - both public and private
+  const [allEvents, setAllEvents] = useState([]);
+  // determines when to show Alert for wrong email/password
+  const [isErrorState, setIsErrorState] = useState(false);
+  // ensures only public events are shown when not logged in
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
+  // filtered events by permission (private/public)
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  // sorted event list (after filtering)
+  const [allSortedEvents, setAllSortedEvents] = useState([]);
+  // filtered events by category
+  const [filteredEventsByCategory, setFilteredEventsByCategory] = useState([]);
+  // determines if user is logged in or not
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogIn = () => {
     setIsInitialLoading(true);
@@ -172,7 +178,7 @@ const Home = () => {
           </Button>
         </HStack>
       </div>
-      {isInitialLoading ? ( 
+      {isInitialLoading ? (
         <EventList desiredEventList={allSortedEvents} loggedIn={loggedIn} />
       ) : (
         <EventList
